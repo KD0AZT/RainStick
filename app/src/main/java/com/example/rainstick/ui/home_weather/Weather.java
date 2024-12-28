@@ -1,4 +1,4 @@
-package com.example.rainstick.ui.gallery;
+package com.example.rainstick.ui.home_weather;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -10,22 +10,22 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
-import com.example.rainstick.databinding.FragmentGalleryBinding;
+import com.example.rainstick.databinding.FragmentWeatherBinding;
 
-public class GalleryFragment extends Fragment {
+public class Weather extends Fragment {
 
-    private FragmentGalleryBinding binding;
+    private FragmentWeatherBinding binding;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        GalleryViewModel galleryViewModel =
-                new ViewModelProvider(this).get(GalleryViewModel.class);
+        WeatherViewModel weatherViewModel =
+                new ViewModelProvider(this).get(WeatherViewModel.class);
 
-        binding = FragmentGalleryBinding.inflate(inflater, container, false);
+        binding = FragmentWeatherBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
-        final TextView textView = binding.textGallery;
-        galleryViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
+        final TextView textView = binding.textHome;
+        weatherViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
         return root;
     }
 
